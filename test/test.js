@@ -11,6 +11,18 @@ describe('groupArrayElements', () => {
             const result = groupArrayElements([1 , 2, 3, 4, 5, 6], 2);
             expect(result).deep.to.equal([[1, 2, 3], [4, 5, 6]]);
         });
+        it('should return a single array with count = 1', function(){
+            const result = groupArrayElements([1 , 2, 3, 4, 5, 6], 1);
+            expect(result).deep.to.equal([[1 , 2, 3, 4, 5, 6]]);
+        });
+        it('should return a single array with count = 0', function(){
+            const result = groupArrayElements([1 , 2, 3, 4, 5, 6], 0);
+            expect(result).deep.to.equal([[1 , 2, 3, 4, 5, 6]]);
+        });
+        it('should return a single array with count greater than input array length', function(){
+            const result = groupArrayElements([1 , 2, 3, 4, 5, 6], 7);
+            expect(result).deep.to.equal([[1 , 2, 3, 4, 5, 6]]);
+        });
     });
     describe('should be able to handle invalid input', () =>{
         it('should handle an empty array', function(){
@@ -18,7 +30,19 @@ describe('groupArrayElements', () => {
             expect(result).deep.to.equal([]);
         });
         it('should handle an undefined array', function(){
-            const result = groupArrayElements([], 2);
+            const result = groupArrayElements(undefined, 2);
+            expect(result).deep.to.equal([]);
+        });
+        it('should handle an null array', function(){
+            const result = groupArrayElements(null, 2);
+            expect(result).deep.to.equal([]);
+        });
+        it('should handle when the input array is not an array type', function(){
+            const result = groupArrayElements(1, 2);
+            expect(result).deep.to.equal([]);
+        });
+        it('should handle when the count is not an number type', function(){
+            const result = groupArrayElements(null, "ss");
             expect(result).deep.to.equal([]);
         });
     });

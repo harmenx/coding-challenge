@@ -7,7 +7,6 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "index.js",
     "test": "mocha --reporter spec"
   },
   "author": "",
