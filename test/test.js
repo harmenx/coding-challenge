@@ -42,7 +42,7 @@ describe('groupArrayElements', () => {
             expect(result).deep.to.equal([]);
         });
         it('should handle when the count is not an number type', function(){
-            const result = groupArrayElements(null, "ss");
+            const result = groupArrayElements([1,2,3], "ss");
             expect(result).deep.to.equal([]);
         });
     });
